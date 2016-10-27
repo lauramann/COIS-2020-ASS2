@@ -22,13 +22,43 @@ namespace Ass2
 		//HashTable: creates an empty hash table of size using the resolution scheme 1 for linear and 2 for quadratic
 		public HashTable(int size, int scheme)
 		{
-			
-			int[] hashT = new int[];
+			if (scheme == 1)
+				table = new Entry[size * 2];
+			else if (scheme == 2)
+				table = new Entry[nextPrime(size)];
+		}
+
+		//method to find next prime number when using quadratic probing
+		public int nextPrime(int number)
+		{
+			number *= 2;
+			while (true)
+			{
+				bool isPrime = true;
+				//increment the number by 1 each time
+				number = number + 1;
+
+				int root = (int)Math.Sqrt(number);
+
+				//start at 2 and increment by 1 until it gets to the squared number
+				for (int i = 2; i <= root; i++)
+				{
+					//how do I check all i's?
+					if (number % i == 0)
+					{
+						isPrime = false;
+						break;
+					}
+				}
+				if (isPrime)
+					return number;
+			}
 		}
 
 		//Add: adds an item with key to hash table (keys must be unique)
 		public void Add(TKey key, TValue item)
 		{
+			
 		}
 
 		//Remove: removes the item with key from the hash table and returns true if done; false otherwise
