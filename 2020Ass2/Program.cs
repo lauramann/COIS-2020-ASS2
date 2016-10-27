@@ -1,7 +1,12 @@
 ﻿using System;
-
-namespace Ass2
+public static class Ass2
 {
+	public static void Main()
+	{
+		
+	}
+
+
 	public enum TStatus { EMPTY, FULL, DELETED }
 
 	public class HashTable<TKey, TValue>
@@ -29,7 +34,7 @@ namespace Ass2
 		}
 
 		//method to find next prime number when using quadratic probing
-		public int nextPrime(int number)
+		public static int nextPrime(int number)
 		{
 			number *= 2;
 			while (true)
@@ -55,10 +60,14 @@ namespace Ass2
 			}
 		}
 
+
+	
+
 		//Add: adds an item with key to hash table (keys must be unique)
 		public void Add(TKey key, TValue item)
 		{
-			
+			int itemSqrd = item * item;
+
 		}
 
 		//Remove: removes the item with key from the hash table and returns true if done; false otherwise

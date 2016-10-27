@@ -1,1 +1,5 @@
 /Users/lauramann/Projects/2020Ass2/2020Ass2/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/lauramann/Projects/2020Ass2/2020Ass2/bin/Debug/2020Ass2.exe.mdb
+/Users/lauramann/Projects/2020Ass2/2020Ass2/bin/Debug/2020Ass2.exe
+/Users/lauramann/Projects/2020Ass2/2020Ass2/obj/x86/Debug/2020Ass2.exe
+/Users/lauramann/Projects/2020Ass2/2020Ass2/obj/x86/Debug/2020Ass2.exe.mdb
