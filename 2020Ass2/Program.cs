@@ -6,7 +6,6 @@ public static class Ass2
 		
 	}
 
-
 	public enum TStatus { EMPTY, FULL, DELETED }
 
 	public class HashTable<TKey, TValue>
@@ -36,43 +35,50 @@ public static class Ass2
 		//method to find next prime number when using quadratic probing
 		public static int nextPrime(int number)
 		{
+			//double number
 			number *= 2;
+
 			while (true)
 			{
 				bool isPrime = true;
 				//increment the number by 1 each time
 				number = number + 1;
 
+
+				//find square root of number
 				int root = (int)Math.Sqrt(number);
 
-				//start at 2 and increment by 1 until it gets to the squared number
+				//start at 2 and increment by 1 until it gets to the square root of the number
 				for (int i = 2; i <= root; i++)
 				{
-					//how do I check all i's?
+					//if it is divisible by i, it is not a prime number, break and add 1
 					if (number % i == 0)
 					{
 						isPrime = false;
 						break;
 					}
 				}
+				//return prime number
 				if (isPrime)
 					return number;
 			}
 		}
 
-
-	
-
 		//Add: adds an item with key to hash table (keys must be unique)
 		public void Add(TKey key, TValue item)
 		{
-			int itemSqrd = item * item;
+			int itemSqrd;
+			itemSqrd = item * item;
+			//find square of item
+			key = itemSqrd % size;
+			return key;
 
 		}
 
 		//Remove: removes the item with key from the hash table and returns true if done; false otherwise
 		public bool Remove(TKey key)
 		{
+			
 		}
 
 		//ContainsKey: returns true if the key is used in the hash table; false otherwise
