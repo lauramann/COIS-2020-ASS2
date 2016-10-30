@@ -10,7 +10,7 @@ public static class Ass2
 
 	public class HashTable<TKey, TValue>
 	{
-		private class Entry  //stores the key, item, and status og a particular entry of the hash table
+		private class Entry  //stores the key, item, and status of a particular entry of the hash table
 		{
 			public TKey Key { get; set; }
 			public TValue Item { get; set; }
@@ -18,7 +18,7 @@ public static class Ass2
 		}
 
 		private Entry[] table;  //array of entries
-		private int size;  //capcity of the hash table
+		public static int size { get; set;}  //capcity of the hash table
 		private int count;  //number of entries in the hash table
 		private int scheme;  //1 for linear, 2 for quadratic
 
@@ -67,11 +67,8 @@ public static class Ass2
 		//Add: adds an item with key to hash table (keys must be unique)
 		public void Add(TKey key, TValue item)
 		{
-			int itemSqrd;
-			itemSqrd = item * item;
-			//find square of item
-			key = itemSqrd % size;
-			return key;
+			table[key] = item;
+			Entry.Status = TStatus.FULL;
 
 		}
 
@@ -102,8 +99,8 @@ public static class Ass2
 
 	public class Coordinate  //used as key
 	{
-		private int longitude;  //from 0...99
-		private int latitude;  //from 0...99
+		private int longitude=18;  //from 0...99
+		private int latitude=19;  //from 0...99
 
 		public Coordinate(int longitude, int latitude)
 		{
@@ -117,8 +114,13 @@ public static class Ass2
 
 		public override int GetHashCode()  //from the Object class
 		{
-			return base.GetHashCode();
+			int itemSqrd;
+			itemSqrd = longitude * latitude;
+			//find square of item
+			int hashKey = itemSqrd % HashTable.size;
+			return hashKey;
 		}
+
 	}
 
 	public class City
